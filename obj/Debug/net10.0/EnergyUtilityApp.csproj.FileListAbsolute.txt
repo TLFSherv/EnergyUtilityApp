@@ -22,7 +22,6 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/scopedcss/bundle/EnergyUtilityApp.styles.css
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/scopedcss/projectbundle/EnergyUtilityApp.bundle.scp.css
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ciqwqqv6o3-{0}-h9vqwha677-h9vqwha677.gz
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-uleo221ruw-uleo221ruw.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ghnc1scvub-{0}-lugek5hnai-lugek5hnai.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/t0qfl4qtff-{0}-61n19gt1b8-61n19gt1b8.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/iakq76usjp-{0}-fr7q2aak1r-fr7q2aak1r.gz
@@ -97,3 +96,7 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.pdb
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.genruntimeconfig.cache
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/ref/EnergyUtilityApp.dll
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package-lock.json
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package.json
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.sourcelink.json
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-swi9rq0qdp-swi9rq0qdp.gz
