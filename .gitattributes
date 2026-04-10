@@ -1,0 +1,4 @@
+# Ignore Tailwind/CSS for language detection
+wwwroot/**/*.css linguist-vendored
+**/*.css linguist-vendored
+**/*.html linguist-vendored
