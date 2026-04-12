@@ -12,31 +12,12 @@
     <link href="~/css/output.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="bg-[#EAE8E8]">
     <header>
-        <div class="flex">
-            <div class="flex flex-1">
-                <img src="" alt="logo" />
-                <h1 class="text-[48px] text-center">Energy Utility API</h1>
-            </div>
-            @* navigation *@
-            <div class="flex-1">
-                <ul class="flex justify-evenly items-center h-full text-lg">
-                    <a href="">
-                        <li>Key Signup</li>
-                    </a>
-                    <a href="">
-                        <li>Contact Us</li>
-                    </a>
-                    <a href="">
-                        <li>Data Resources</li>
-                    </a>
-                </ul>
-            </div>
-        </div>
+        <partial name="_HeaderPartial" />
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 w-full">
             @RenderBody()
         </main>
     </div>
