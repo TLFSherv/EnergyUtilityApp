@@ -1,0 +1,18 @@
+@model List<OptionDesc>
+<table class="mt-2">
+    <thead>
+        <tr class="text-left">
+            <th class="px-4">Option</th>
+            <th class="px-4">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var param in Model)
+        {
+            <tr>
+                <td class="px-4 text-center">@param.Option</td>
+                <td class="px-4">@param.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

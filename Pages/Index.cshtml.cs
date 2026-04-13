@@ -6,8 +6,9 @@ namespace EnergyUtilityApp.Pages;
 
 public class IndexModel : PageModel
 {
+    public required ApiParameterTable ApiParameters { get; set; }
     public void OnGet()
     {
-
+        ApiParameters = new ApiParameterTable();
     }
 }
