@@ -35,91 +35,48 @@
             </div>
         </div>
         <div class="flex-3 space-y-4">
-            <div class="flex justify-center">
-                <label class="text-lg">Search:
-                    <input type="text" class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
-                </label>
-            </div>
+            <form method="get" class="flex justify-center space-x-2">
+                <input type="search" name="search" value="@Model.SearchTerm"
+                       class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
+                <button type="submit" asp-page-handler="SearchParameters"
+                        class="text-lg text-white font-light tracking-wider bg-[#2F91E1] px-4 rounded cursor-pointer">Search</button>
+            </form>
             <div class="overflow-auto h-[400px]">
-                <table class="w-full text-lg">
+                <table class="table-fixed w-full text-lg">
                     <thead class="bg-[#D9D9D9]">
                         <tr class="text-left m-4">
-                            <th class="p-4">Parameter</th>
-                            <th class="p-4">Required</th>
-                            <th class="p-4">Value </th>
-                            <th class="p-4">Description</th>
+                            <th class="p-4 w-auto">Parameter</th>
+                            <th class="p-4 w-auto">Required</th>
+                            <th class="p-4 w-1/4">Value </th>
+                            <th class="p-4 w-2/5">Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-b-2 border-[#D9D9D9]">
-                            <td class="p-4">Postcode</td>
-                            <td class="p-4">Yes</td>
-                            <td class="p-4">
-                                <ol>
-                                    <li><strong>Type:</strong> string</li>
-                                    <li><strong>Example:</strong>AB10AG</li>
-                                </ol>
-                            </td>
-                            <td class="p-4">
-                                The postcode you want the data for. Do not include spaces.
-                            </td>
-                        </tr>
-                        <tr class="border-b-2 border-[#D9D9D9]">
-                            <td class="p-4">PropertyType</td>
-                            <td class="p-4">No</td>
-                            <td class="p-4">
-                                <ol>
-                                    <li><strong>Type:</strong> Integer</li>
-                                    <li><strong>Default:</strong> none</li>
-                                    <li><strong>Options:</strong> 1,2,3,4,5,6,7</li>
-                                </ol>
-                            </td>
-                            <td class="p-4">
-                                <partial name="_SubtablePartial" model="@Model.ApiParameters.PropteryType" />
-                            </td>
-                        </tr>
-                        <tr class="border-b-2 border-[#D9D9D9]">
-                            <td class="p-4">PropertyAge</td>
-                            <td class="p-4">No</td>
-                            <td class="p-4">
-                                <ol>
-                                    <li><strong>Type:</strong> Integer</li>
-                                    <li><strong>Default:</strong> none</li>
-                                    <li><strong>Options:</strong> 1,2,3,4</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <partial name="_SubtablePartial" model="@Model.ApiParameters.PropteryAge" />
-                            </td>
-                        </tr>
-                        <tr class="border-b-2 border-[#D9D9D9]">
-                            <td class="p-4">FloorArea</td>
-                            <td class="p-4">No</td>
-                            <td class="p-4">
-                                <ol>
-                                    <li><strong>Type:</strong> Integer</li>
-                                    <li><strong>Default:</strong> none</li>
-                                    <li><strong>Options:</strong> 1,2,3,4,5</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <partial name="_SubtablePartial" model="@Model.ApiParameters.FloorArea" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">HouseholdSize</td>
-                            <td class="p-4">No</td>
-                            <td class="p-4">
-                                <ol>
-                                    <li><strong>Type:</strong> Integer</li>
-                                    <li><strong>Default:</strong> none</li>
-                                    <li><strong>Options:</strong> 1,2,3</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <partial name="_SubtablePartial" model="@Model.ApiParameters.HouseholdSize" />
-                            </td>
-                        </tr>
+                        @foreach (var row in Model.ParameterTableData.Rows)
+                        {
+                            <tr class="border-b-2 border-[#D9D9D9]">
+                                <td class="p-4">@row.Parameter</td>
+                                <td class="p-4">@row.Required</td>
+                                <td class="p-4">
+                                    <ol>
+                                        @foreach (string key in @row.Value.Keys)
+                                        {
+                                            <li><strong>@key</strong> @row.Value[key]</li>
+                                        }
+                                    </ol>
+                                </td>
+                                <td class="p-4">
+                                    @if (row.Parameter == "Postcode")
+                                    {
+                                        @row.Description[0].Description
+                                    }
+                                    else
+                                    {
+                                        <partial name="_SubtablePartial" model="row" />
+                                    }
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

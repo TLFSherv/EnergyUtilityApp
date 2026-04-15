@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+509efa0eec5515eb9cc517327585a102f70cc460")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+186418b1f7fd67cc4f76f8c927a8354e7ebad2f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

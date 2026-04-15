@@ -6,9 +6,23 @@ namespace EnergyUtilityApp.Pages;
 
 public class IndexModel : PageModel
 {
-    public required ApiParameterTable ApiParameters { get; set; }
-    public void OnGet()
+    [BindProperty(SupportsGet = true)]
+    public string? SearchTerm { get; set; }
+    public required ApiParameterTable ParameterTableData { get; set; }
+    public void OnGet([FromQuery] string? search)
     {
-        ApiParameters = new ApiParameterTable();
+        ParameterTableData = new ApiParameterTable();
+        if (string.IsNullOrWhiteSpace(search)) return;
+
+        SearchTerm = search;
+        var searchTerm = search.Trim().ToLowerInvariant();
+
+        ParameterTableData.Rows = ParameterTableData.Rows
+            .Where(row =>
+                row.Parameter?.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) == true ||
+                row.Description?.Any(desc =>
+                    desc?.Description?.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) == true) == true)
+            .ToList();
+
     }
 }
