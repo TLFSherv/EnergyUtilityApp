@@ -39,7 +39,7 @@ public class ApiParameterTable
                 }
             ),
             new ApiParameterTableRow(
-                "PropteryAge",
+                "PropertyAge",
                 "No",
                 new Dictionary<string, string>()
                 {

@@ -99,4 +99,4 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package-lock.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.sourcelink.json
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-z0xbhfsdip-z0xbhfsdip.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-8osvay8cz2-8osvay8cz2.gz

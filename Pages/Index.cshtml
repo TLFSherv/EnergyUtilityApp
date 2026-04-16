@@ -35,16 +35,17 @@
             </div>
         </div>
         <div class="flex-3 space-y-4">
-            <form method="get" class="flex justify-center space-x-2">
-                <input type="search" name="search" value="@Model.SearchTerm"
-                       class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
-                <button type="submit" asp-page-handler="SearchParameters"
-                        class="text-lg text-white font-light tracking-wider bg-[#2F91E1] px-4 rounded cursor-pointer">Search</button>
-            </form>
+            <div class="flex justify-center">
+                <label>
+                    Search:
+                    <input type="search" id="searchInput"
+                           class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
+                </label>
+            </div>
             <div class="overflow-auto h-[400px]">
-                <table class="table-fixed w-full text-lg">
+                <table id="parameterTable" class="table-fixed w-full text-lg">
                     <thead class="bg-[#D9D9D9]">
-                        <tr class="text-left m-4">
+                        <tr class="tableRow text-left m-4">
                             <th class="p-4 w-auto">Parameter</th>
                             <th class="p-4 w-auto">Required</th>
                             <th class="p-4 w-1/4">Value </th>
@@ -54,7 +55,7 @@
                     <tbody>
                         @foreach (var row in Model.ParameterTableData.Rows)
                         {
-                            <tr class="border-b-2 border-[#D9D9D9]">
+                            <tr class="tableRow border-b-2 border-[#D9D9D9]">
                                 <td class="p-4">@row.Parameter</td>
                                 <td class="p-4">@row.Required</td>
                                 <td class="p-4">
@@ -83,3 +84,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/tableSearch.js" asp-append-version="true"></script>
+}
