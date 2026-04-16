@@ -19,18 +19,16 @@
         <div class="space-y-4 flex-2">
             <div class="space-y-2">
                 <h2>Examples:</h2>
-                <input type="text" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
-                       disabled></input>
-                <div class="bg-[#D9D9D9] h-[400px]">
-                    <!-- vscode-format:off -->
-                    <pre>
-                        {
-                        Postcode: 
-                        MeanCons:
-                        MedianCons:
-                        }
-                    </pre>
-                    <!-- vscode-format:on -->
+                <input id="apiRequestInput" type="text" value="api/energy-utility"
+                       class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2" disabled></input>
+                <div class="bg-[#D9D9D9] h-[400px] flex justify-center">
+                    <ul class="pt-8">
+                        <li>{</li>
+                        <li class="pl-6">Postcode: AB10AG</li>
+                        <li class="pl-6">MeanCons:</li>
+                        <li class="pl-6">MedianCons:</li>
+                        <li>}</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -87,4 +85,31 @@
 
 @section Scripts {
     <script src="~/js/tableSearch.js" asp-append-version="true"></script>
+    <script>
+        function clearGroup(elem) {
+            let group = document.getElementsByClassName(elem.className);
+            let apiRequestInput = document.getElementById("apiRequestInput");
+            for (let i = 0; i < group.length; i++) {
+                if (group[i] != elem) {
+                    group[i].checked = false;
+                }
+            }
+            let requestUrl = apiRequestInput.value;
+            let includesOtherParams = requestUrl.includes("?");
+            
+            if (requestUrl.includes(elem.className)) {
+                if (elem.checked) {
+                    let re = new RegExp(String.raw`${elem.className}=\d`);
+                    apiRequestInput.value = requestUrl.replace(re, elem.value);
+                }
+                else {
+                    let re = new RegExp(String.raw`[&]?${elem.className}=\d[&]?`);
+                    apiRequestInput.value = requestUrl.replace(re, "");
+                }
+            }
+            else {
+                apiRequestInput.value += includesOtherParams ? elem.value + "&" : "?" + elem.value + "&";
+            }
+        }
+    </script>
 }

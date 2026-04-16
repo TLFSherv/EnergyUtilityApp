@@ -12,7 +12,10 @@
             <tr>
                 <td class="px-4 text-center">@param.Option</td>
                 <td class="px-4">@param.Description</td>
-                <td class="px-4"><input type="radio" name="@Model.Parameter" /></td>
+                <td class="px-4">
+                    <input type="checkbox" value="@Model.Parameter=@param.Option" class="@Model.Parameter"
+                           onclick="clearGroup(this)" />
+                </td>
             </tr>
         }
     </tbody>
