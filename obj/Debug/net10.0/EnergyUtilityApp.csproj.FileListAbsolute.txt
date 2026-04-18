@@ -1,5 +1,7 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/appsettings.Development.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/appsettings.json
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package-lock.json
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/EnergyUtilityApp.staticwebassets.runtime.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/EnergyUtilityApp.staticwebassets.endpoints.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/EnergyUtilityApp
@@ -15,6 +17,7 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.MvcApplicationPartsAssemblyInfo.cache
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.RazorAssemblyInfo.cache
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.RazorAssemblyInfo.cs
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.sourcelink.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
@@ -25,6 +28,7 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ghnc1scvub-{0}-lugek5hnai-lugek5hnai.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/t0qfl4qtff-{0}-61n19gt1b8-61n19gt1b8.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/iakq76usjp-{0}-fr7q2aak1r-fr7q2aak1r.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/assqiq6g0c-{0}-4kxk3dt7ku-4kxk3dt7ku.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/7m0uilaq7h-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/jpqxtf1qwo-{0}-c2jlpeoesf-c2jlpeoesf.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2nrshps2iu-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -96,7 +100,5 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.pdb
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.genruntimeconfig.cache
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/ref/EnergyUtilityApp.dll
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package-lock.json
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/package.json
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/EnergyUtilityApp.sourcelink.json
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-lblg8zu2lz-lblg8zu2lz.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-8ie09eqyp3-8ie09eqyp3.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/isc9jbl3eq-{0}-ef72fvle86-ef72fvle86.gz

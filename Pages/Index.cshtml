@@ -17,87 +17,72 @@
     </div>
     <div class="flex space-x-16 text-lg">
         <div class="space-y-4 flex-2">
-            <div>
-                <h2>Request URL:</h2>
-                <div class="flex justify-center items-center bg-[#D9D9D9] h-[100px]">
-                    <p>GET api/energy-utility/cost?Postcode=</p>
-                </div>
-            </div>
             <div class="space-y-2">
                 <h2>Examples:</h2>
-                <input type="text" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"></input>
-                <div class="bg-[#D9D9D9] h-[200px]">
-                    <!-- vscode-format:off -->
-                    <pre>
-                        {
-                        Postcode: 
-                        MeanCons:
-                        MedianCons:
-                        }
-                    </pre>
-                    <!-- vscode-format:on -->
+                <textarea id="apiRequestText" type="text"
+                          class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                          disabled>@Model.EnergyUtilityApiUrl</textarea>
+                <input id="apiRequestInput" type="hidden" value="@Model.EnergyUtilityApiUrl" disabled />
+                <div class="bg-[#D9D9D9] h-[400px] flex justify-center">
+                    <pre id="jsonDisplay"></pre>
                 </div>
             </div>
         </div>
         <div class="flex-3 space-y-4">
             <div class="flex justify-center">
-                <label class="text-lg">Search:
-                    <input type="text" class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
+                <label>
+                    Search:
+                    <input type="search" id="searchInput"
+                           class="border border-2 border-[#BBBABA] rounded-lg py-1 px-2 w-[400px]"></input>
                 </label>
             </div>
-            <table class="w-full text-lg">
-                <thead class="bg-[#D9D9D9]">
-                    <tr class="text-left m-4">
-                        <th class="p-4">Parameter</th>
-                        <th class="p-4">Required</th>
-                        <th class="p-4">Value </th>
-                        <th class="p-4">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="p-4">Postcode</td>
-                        <td class="p-4">Yes</td>
-                        <td class="p-4">
-                            <ol>
-                                <li><strong>Type:</strong> string</li>
-                                <li><strong>Example:</strong>AB10AG</li>
-                            </ol>
-                        </td>
-                        <td class="p-4">
-                            The postcode you want the data for. Do not include spaces.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-4">PropertyType</td>
-                        <td class="p-4">No</td>
-                        <td class="p-4">
-                            <ol>
-                                <li><strong>Type:</strong> Integer</li>
-                                <li><strong>Default:</strong> none</li>
-                                <li><strong>Options:</strong> 1,2,3,4,5,6,7</li>
-                            </ol>
-                        </td>
-                        <td class="p-4">
-                            Type of property
-                            <table class="mt-2">
-                                <thead>
-                                    <tr class="text-left">
-                                        <th class="px-4">Option</th>
-                                        <th class="px-4">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="text-center">
-                                        <td class="px-4">1</td>
-                                        <td class="px-4">Detached</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="overflow-auto h-[400px]">
+                <table id="parameterTable" class="table-fixed w-full text-lg">
+                    <thead class="bg-[#D9D9D9]">
+                        <tr class="tableRow text-left m-4">
+                            <th class="p-4 w-auto">Parameter</th>
+                            <th class="p-4 w-auto">Required</th>
+                            <th class="p-4 w-1/4">Value </th>
+                            <th class="p-4 w-2/5">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="post">
+                            @Html.AntiForgeryToken()
+                            @foreach (var row in Model.ParameterTableData.Rows)
+                            {
+                                <tr class="tableRow border-b-2 border-[#D9D9D9]">
+                                    <td class="p-4">@row.Parameter</td>
+                                    <td class="p-4">@row.Required</td>
+                                    <td class="p-4">
+                                        <ol>
+                                            @foreach (string key in @row.Value.Keys)
+                                            {
+                                                <li><strong>@key</strong> @row.Value[key]</li>
+                                            }
+                                        </ol>
+                                    </td>
+                                    <td class="p-4">
+                                        @if (row.Parameter == "Postcode")
+                                        {
+                                            @row.Description[0].Description
+                                        }
+                                        else
+                                        {
+                                            <partial name="_SubtablePartial" model="row" />
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </form>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/tableSearch.js" asp-append-version="true"></script>
+    <script src="~/js/fetchData.js" asp-append-version="true"></script>
+}

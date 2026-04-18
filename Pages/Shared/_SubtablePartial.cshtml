@@ -1,0 +1,22 @@
+@model ApiParameterTableRow
+<table class="mt-2">
+    <thead>
+        <tr class="text-left">
+            <th class="px-4">Option</th>
+            <th class="px-4">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var param in Model.Description)
+        {
+            <tr>
+                <td class="px-4 text-center">@param.Option</td>
+                <td class="px-4">@param.Description</td>
+                <td class="px-4">
+                    <input type="checkbox" name="@Model.Parameter" value="@param.Option" class="@Model.Parameter"
+                           onclick="setApiRequest(this)" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
