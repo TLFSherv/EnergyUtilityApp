@@ -16,10 +16,10 @@ function setApiRequest(elem) {
         }
     }
     apiRequestText.value = requestUrl + parameters;
-    sendApiParameters(checkedInputs);
+    fetchApiResults(checkedInputs);
 }
 
-async function sendApiParameters(inputs) {
+async function fetchApiResults(inputs) {
     try {
         const resp = await fetch("/", {
             method: "POST",
@@ -30,7 +30,6 @@ async function sendApiParameters(inputs) {
             body: JSON.stringify(inputs)
         });
         const data = await resp.json();
-        console.log(data);
         const formattedJson = JSON.stringify(data, null, 4);
         document.getElementById("jsonDisplay").innerText = formattedJson;
     }

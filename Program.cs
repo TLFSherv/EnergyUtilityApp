@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
+var connString = builder.Configuration.getConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<EnergyUtilityDbContext>( // register DbContext
+    options => options.UseNpgsql(connString) // specify provider
+);
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

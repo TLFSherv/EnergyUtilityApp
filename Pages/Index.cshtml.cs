@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace EnergyUtilityApp.Pages;
 
@@ -27,7 +26,6 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-
         try
         {
             if (!ModelState.IsValid)
