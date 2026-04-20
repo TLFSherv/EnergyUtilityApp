@@ -49,23 +49,23 @@
                     <tbody>
                         <form method="post">
                             @Html.AntiForgeryToken()
-                            @foreach (var row in Model.ParameterTableData.Rows)
+                            @foreach (var row in Model.ParameterTableData)
                             {
                                 <tr class="tableRow border-b-2 border-[#D9D9D9]">
-                                    <td class="p-4">@row.Parameter</td>
+                                    <td class="p-4">@row.Name</td>
                                     <td class="p-4">@row.Required</td>
                                     <td class="p-4">
                                         <ol>
-                                            @foreach (string key in @row.Value.Keys)
-                                            {
-                                                <li><strong>@key</strong> @row.Value[key]</li>
-                                            }
+                                                <li><strong>Type:</strong> @row.Type</li>
+                                                <li><strong>Default:</strong> @row.DefaultValue</li>
+                                                <li><strong>Options:</strong> @row.Options</li>
+                                            
                                         </ol>
                                     </td>
                                     <td class="p-4">
-                                        @if (row.Parameter == "Postcode")
+                                        @if (row.Name == "Postcode")
                                         {
-                                            @row.Description[0].Description
+                                           @:postcode, do not include spaces
                                         }
                                         else
                                         {

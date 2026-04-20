@@ -1,15 +1,20 @@
 using Microsoft.EntityFrameworkCore;
+using EnergyUtilityApp;
 
-var connString = builder.Configuration.getConnectionString("DefaultConnection");
+var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<EnergyUtilityDbContext>( // register DbContext
+var connString = builder.Configuration.GetConnectionString("DbConnection");
+
+builder.Services.AddDbContext<EnergyUtilityAppDbContext>( // register DbContext
     options => options.UseNpgsql(connString) // specify provider
 );
-var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<EnergyApiService>();
+builder.Services.AddScoped<AppDbService>();
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
