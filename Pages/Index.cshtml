@@ -4,18 +4,19 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="mx-12 mt-4 w-full space-y-8">
+<div class="mx-12 mt-4 space-y-8">
     <div class="space-y-4">
-        <h1 class="text-[48px]">Energy Utility API</h1>
-        <p class="text-xl">
-            Use the Energy Utility API to calculate household energy expenditures by postcode. This API has two
-            endpoints -
-            one for fetching postcode level electricity meter data for over 1 million UK postcodes, and the second
-            calculates the yearly consumption and cost of electricity based on postcode and household features passed as
-            query string parameters.
+        <h1 class="text-5xl">Energy Utility API</h1>
+        <p class="text-lg">
+            The Energy Utility API is an enterprise level accurate API for calculating UK household energy
+            consumption and cost by postcode.
+            Additionally, the API's single endpoint contains relevant regional data and meter energy data. The API
+            utilises query string parameters to
+            recieve data, the table below list the API parameter options. Select an option in the checkbox to see an
+            example of the API in action.
         </p>
     </div>
-    <div class="flex space-x-16 text-lg">
+    <div class="flex space-x-16">
         <div class="space-y-4 flex-2">
             <div class="space-y-2">
                 <h2>Examples:</h2>
@@ -23,7 +24,7 @@
                           class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
                           disabled>@Model.EnergyUtilityApiUrl</textarea>
                 <input id="apiRequestInput" type="hidden" value="@Model.EnergyUtilityApiUrl" disabled />
-                <div class="bg-[#D9D9D9] h-[400px] flex justify-center">
+                <div class="bg-[#D9D9D9] h-[400px] flex justify-center overflow-auto">
                     <pre id="jsonDisplay"></pre>
                 </div>
             </div>
@@ -37,13 +38,13 @@
                 </label>
             </div>
             <div class="overflow-auto h-[400px]">
-                <table id="parameterTable" class="table-fixed w-full text-lg">
+                <table id="parameterTable" class="table-fixed w-full text-base">
                     <thead class="bg-[#D9D9D9]">
                         <tr class="tableRow text-left m-4">
-                            <th class="p-4 w-auto">Parameter</th>
+                            <th class="p-4 w-[22%]">Parameter</th>
                             <th class="p-4 w-auto">Required</th>
-                            <th class="p-4 w-1/4">Value </th>
-                            <th class="p-4 w-2/5">Description</th>
+                            <th class="p-4 w-[25%]">Value </th>
+                            <th class="p-4 w-[38%]">Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,18 +57,15 @@
                                     <td class="p-4">@row.Required</td>
                                     <td class="p-4">
                                         <ol>
-                                                <li><strong>Type:</strong> @row.Type</li>
-                                                <li><strong>Default:</strong> @row.DefaultValue</li>
-                                                <li><strong>Options:</strong> @row.Options</li>
+                                            <li><strong>Type:</strong> @row.Type</li>
+                                            <li><strong>Default:</strong> @row.DefaultValue</li>
+                                            <li><strong>Options:</strong> @row.Options</li>
                                             
                                         </ol>
                                     </td>
                                     <td class="p-4">
-                                        @if (row.Name == "Postcode")
-                                        {
-                                           @:postcode, do not include spaces
-                                        }
-                                        else
+                                        @row.Text
+                                        @if (row.Name != "Postcode")
                                         {
                                             <partial name="_SubtablePartial" model="row" />
                                         }

@@ -57,6 +57,9 @@ public partial class EnergyUtilityAppDbContext : DbContext
             entity.Property(e => e.Type)
                 .HasMaxLength(8)
                 .HasColumnName("type");
+            entity.Property(e => e.Text)
+                .HasMaxLength(100)
+                .HasColumnName("text");
         });
 
         OnModelCreatingPartial(modelBuilder);

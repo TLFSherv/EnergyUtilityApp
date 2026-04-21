@@ -8,7 +8,8 @@ namespace EnergyUtilityApp.Pages;
 public class IndexModel : PageModel
 {
     [BindProperty]
-    public ParameterOptions parameters { get; set; } = new();
+    [FromBody]
+    public ParameterOptions APIParameters { get; set; } = new();
     public required List<ParameterTableDisplay> ParameterTableData { get; set; }
     public required string EnergyUtilityApiUrl = "http://localhost:5252/api/energy-utility?Postcode=AB10AG";
     private readonly EnergyApiService _apiService;
@@ -52,7 +53,7 @@ public class IndexModel : PageModel
                 return Page();
             }
 
-            var result = await _apiService.GetPostcodeEnergyData(EnergyUtilityApiUrl, parameters);
+            var result = await _apiService.GetPostcodeEnergyData(EnergyUtilityApiUrl, APIParameters);
             if (result != null)
             {
                 return new JsonResult(result);

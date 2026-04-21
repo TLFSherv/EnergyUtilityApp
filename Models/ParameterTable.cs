@@ -16,4 +16,6 @@ public partial class ParameterTable
     public string? DefaultValue { get; set; }
 
     public string? Options { get; set; }
+
+    public string? Text { get; set; }
 }

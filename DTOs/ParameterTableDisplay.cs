@@ -10,6 +10,8 @@ public record ParameterTableDisplay
 
     public string? Options { get; set; }
 
+    public string? Text { get; set; }
+
     public List<OptionValuesDisplay> OptionValues { get; set; }
 }
 

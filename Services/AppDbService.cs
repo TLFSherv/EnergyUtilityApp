@@ -19,6 +19,7 @@ public class AppDbService
             Type = param.Type,
             DefaultValue = param.DefaultValue,
             Options = param.Options,
+            Text = param.Text,
             OptionValues = _context.OptionValues
                 .Where(opt => param.Id == opt.ParameterId)
                 .Select(opt => new OptionValuesDisplay

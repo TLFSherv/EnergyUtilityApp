@@ -20,11 +20,13 @@ public class EnergyApiService
                 // get the name and value of each property
                 string name = property.Name;
                 object value = property.GetValue(parameters);
+
                 if (value is int val && val != 0)
                 {
                     requestUrl += $"&{name}={value}";
                 }
             }
+
             var response = await _httpClient.GetAsync(requestUrl);
             if (response.IsSuccessStatusCode)
             {

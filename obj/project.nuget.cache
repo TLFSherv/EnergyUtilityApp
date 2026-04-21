@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7dkpD2fF3/k=",
+  "dgSpecHash": "P5qPRT0tRe0=",
   "success": true,
   "projectFilePath": "/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/EnergyUtilityApp.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,6 @@
     "/Users/sherwinburgess/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.6/microsoft.entityframeworkcore.analyzers.10.0.6.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/microsoft.entityframeworkcore.design/10.0.6/microsoft.entityframeworkcore.design.10.0.6.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/microsoft.entityframeworkcore.relational/10.0.6/microsoft.entityframeworkcore.relational.10.0.6.nupkg.sha512",
-    "/Users/sherwinburgess/.nuget/packages/microsoft.extensions.caching.memory/10.0.6/microsoft.extensions.caching.memory.10.0.6.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/microsoft.extensions.dependencymodel/10.0.6/microsoft.extensions.dependencymodel.10.0.6.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/microsoft.visualstudio.solutionpersistence/1.0.52/microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
@@ -32,18 +31,5 @@
     "/Users/sherwinburgess/.nuget/packages/system.composition.runtime/9.0.0/system.composition.runtime.9.0.0.nupkg.sha512",
     "/Users/sherwinburgess/.nuget/packages/system.composition.typedparts/9.0.0/system.composition.typedparts.9.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.Extensions.Caching.Memory will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
-      "projectPath": "/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/EnergyUtilityApp.csproj",
-      "warningLevel": 1,
-      "filePath": "/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/EnergyUtilityApp.csproj",
-      "libraryId": "Microsoft.Extensions.Caching.Memory",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }
