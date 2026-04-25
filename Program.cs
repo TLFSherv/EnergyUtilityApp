@@ -9,6 +9,11 @@ builder.Services.AddDbContext<EnergyUtilityAppDbContext>( // register DbContext
     options => options.UseNpgsql(connString) // specify provider
 );
 
+// add identity services
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+    options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<EnergyUtilityAppDbContext>();
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<EnergyApiService>();
@@ -29,6 +34,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
