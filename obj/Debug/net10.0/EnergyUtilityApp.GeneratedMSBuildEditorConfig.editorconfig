@@ -34,6 +34,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Areas/Identity/Pages/Account/Manage/ApiKey.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvQXBpS2V5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

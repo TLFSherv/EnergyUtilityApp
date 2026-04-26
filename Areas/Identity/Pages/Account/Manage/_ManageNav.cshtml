@@ -3,17 +3,18 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 <ul class="w-3/4 space-y-5 divide-y-1 divide-[#BBBABA] font-light text-xl">
-    <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
-                                asp-page="./Index">API Key</a>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
     </li>
-    @* <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
-                                asp-page="./Index">Profile</a>
-    </li> *@
-    <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email"
-                                asp-page="./Email">Email</a>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.ApiKeyNavClass(ViewContext)" id="api-key" asp-page="./ApiKey">API Key</a>
     </li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
-                                asp-page="./ChangePassword">Password</a>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
+           asp-page="./ChangePassword">Password</a>
     </li>
     @if (hasExternalLogins)
     {
@@ -24,10 +25,10 @@
             </a>
         </li>
     }
-    <li class="nav-item">
+    @* <li class="nav-item">
         <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor"
            asp-page="./TwoFactorAuthentication">Two-factor authentication</a>
-    </li>
+    </li> *@
     <li class="nav-item">
         <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data"
            asp-page="./PersonalData">Personal data</a>

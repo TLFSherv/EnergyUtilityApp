@@ -5,7 +5,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace  EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
+namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
 {
     /// <summary>
     ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -13,6 +13,7 @@ namespace  EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
     /// </summary>
     public static class ManageNavPages
     {
+        public static string ApiKey => "ApiKey";
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -61,6 +62,7 @@ namespace  EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
+        public static string ApiKeyNavClass(ViewContext viewContext) => PageNavClass(viewContext, ApiKey);
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
