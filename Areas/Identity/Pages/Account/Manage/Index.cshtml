@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="w-3/4 space-y-6">
+    @* <h2 class="text-5xl pb-4 font-medium font-[Arial] border-b w-3/4">Create API Key</h2> *@
+    <partial name="_StatusMessage" for="StatusMessage" />
+    <form id="profile-form" method="post" class="space-y-6">
+        <div asp-validation-summary="ModelOnly" class="text-red-400" role="alert"></div>
+        <div>
+            <label asp-for="Username" class="form-label"></label>
+            <input asp-for="Username" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                   placeholder="Please choose your username." disabled />
+        </div>
+        <div>
+            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+            <input asp-for="Input.PhoneNumber" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                   placeholder="Please enter your phone number." />
+            <span asp-validation-for="Input.PhoneNumber" class="text-red-400"></span>
+        </div>
+        <div>
+            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+            <input asp-for="Input.PhoneNumber" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                   placeholder="Please enter your phone number." />
+            <span asp-validation-for="Input.PhoneNumber" class="text-red-400"></span>
+        </div>
+        <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

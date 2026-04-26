@@ -16,23 +16,21 @@
             <div class="grid grid-cols-[1fr_2fr] grid-rows-3 gap-y-10 gap-x-6">
                 <label asp-for="Input.Email">Email</label>
                 <div>
-                    <input asp-for="Input.Email"
-                           class="form-control border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                    <input asp-for="Input.Email" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
                            autocomplete="username" aria-required="true" placeholder="name@example.com" />
                     <span asp-validation-for="Input.Email" class="text-red-400"></span>
                 </div>
                 <label asp-for="Input.Password">Password</label>
                 <div>
-                    <input asp-for="Input.Password"
-                           class="form-control border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
+                    <input asp-for="Input.Password" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
                            autocomplete="new-password" aria-required="true" placeholder="password" />
                     <span asp-validation-for="Input.Password" class="text-red-400"></span>
                 </div>
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <div>
                     <input asp-for="Input.ConfirmPassword"
-                           class="form-control border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
-                           autocomplete="new-password" aria-required="true" placeholder="password" />
+                           class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2" autocomplete="new-password"
+                           aria-required="true" placeholder="password" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-red-400"></span>
                 </div>
             </div>

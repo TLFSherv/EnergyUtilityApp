@@ -1,0 +1,33 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<div class="space-y-12">
+    <div class="shadow-md p-4 w-1/2 mx-auto rounded-md mt-6 space-y-4">
+        <h1 class="text-4xl">Manage your account</h1>
+        <ol class="text-xl list-disc list-inside">
+            <li>Change your account settings</li>
+            <li>Create API Key</li>
+        </ol>
+    </div>
+
+    <div class="grid grid-cols-[2fr_3fr] gap-x-4 text-lg">
+        <div class="flex flex-col justify-center items-center">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="h-[200px]">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
