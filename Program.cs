@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using EnergyUtilityApp;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,11 @@ var connString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContext<EnergyUtilityAppDbContext>( // register DbContext
     options => options.UseNpgsql(connString) // specify provider
 );
+
+// add identity services
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+    options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<EnergyUtilityAppDbContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -29,6 +35,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

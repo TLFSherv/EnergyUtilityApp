@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnergyUtilityApp;
 
-public partial class EnergyUtilityAppDbContext : DbContext
+public partial class EnergyUtilityAppDbContext : IdentityDbContext<ApplicationUser>
 {
     public EnergyUtilityAppDbContext()
     {
@@ -21,6 +22,9 @@ public partial class EnergyUtilityAppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // set the default schema
+        modelBuilder.HasDefaultSchema("app");
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<OptionValue>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("option_values_pkey");

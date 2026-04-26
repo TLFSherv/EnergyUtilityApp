@@ -4,22 +4,26 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="mx-12 mt-4 space-y-8">
+<div class="mx-12 mt-8 space-y-8">
     <div class="space-y-4">
-        <h1 class="text-5xl">Energy Utility API</h1>
-        <p class="text-lg">
-            The Energy Utility API is an enterprise level accurate API for calculating UK household energy
-            consumption and cost by postcode.
-            Additionally, the API's single endpoint contains relevant regional data and meter energy data. The API
-            utilises query string parameters to
-            recieve data, the table below list the API parameter options. Select an option in the checkbox to see an
-            example of the API in action.
+        <h1 class="text-4xl font-medium">Energy Utility API</h1>
+        <p class="text-xl">
+            Enterprise level API for calculating UK energy cost and consumption by postcode and household features.
+            The Energy Utility API can be relied upon to deliver the most accurate, and up to date energy results, all
+            at
+            a single endpoint.
+            Data about the household can be sent to the API as query string parameters, see the table of available
+            parameters below as well as the API URL. Test the API by selecting one or more
+            checkboxes in the parameter table. Selecting a checkbox adds the corresponding parameter and option to the
+            API URL
+            request,
+            and the response is shown below the request URL.
         </p>
     </div>
-    <div class="flex space-x-16">
+    <div class="flex space-x-16 text-lg">
         <div class="space-y-4 flex-2">
             <div class="space-y-2">
-                <h2>Examples:</h2>
+                <h2 class="font-medium">API URL:</h2>
                 <textarea id="apiRequestText" type="text"
                           class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
                           disabled>@Model.EnergyUtilityApiUrl</textarea>
@@ -38,7 +42,7 @@
                 </label>
             </div>
             <div class="overflow-auto h-[400px]">
-                <table id="parameterTable" class="table-fixed w-full text-base">
+                <table id="parameterTable" class="table-fixed w-full">
                     <thead class="bg-[#D9D9D9]">
                         <tr class="tableRow text-left m-4">
                             <th class="p-4 w-[22%]">Parameter</th>
