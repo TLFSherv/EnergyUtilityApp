@@ -3,11 +3,48 @@
 @{
     ViewData["Title"] = "API Key";
 }
-<div>
-    <h1>API Key</h1>
-    <h2>Hello World!</h2>
-
-    <form>
-
+<div class="space-y-5">
+    <div class="space-y-2">
+        <h1 class="text-2xl">
+            @(@Model.ApiKey == null ? "Generate API Key" : "Manage API Key")
+        </h1>
+        <h2>Select the generate key button to create your API Key.</h2>
+    </div>
+    <form method="post" class="space-y-4">
+        <div class="space-x-2">
+            <label class="block" asp-for="ApiKey"></label>
+            <input class="w-1/2 border border-2 border-[#BBBABA] rounded-lg py-1 px-2" asp-for="ApiKey"
+                   placeholder="No key" disabled />
+            <button id="copyButton" onclick="handleCopy()" type="button"
+                    class="text-sm font-semibold underline underline-offset-3 p-1 rounded-lg cursor-pointer">Copy</button>
+        </div>
+        @if (Model.IsKeyValid)
+        {
+            <button type="submit" class="btn btn-lg btn-primary" disabled>Generate key</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-lg btn-primary cursor-pointer">Generate key</button>
+        }
     </form>
 </div>
+
+<script>
+    let timeoutId = null;
+    function handleCopy() {
+        const copyText = document.getElementById("ApiKey");
+        const copyButton = document.getElementById("copyButton");
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+        // copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        copyButton.textContent = "Copied";
+        if (timeoutId != null) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            copyButton.textContent = "Copy";
+            timeoutId = null;
+        }, 4000);
+    }
+</script>
