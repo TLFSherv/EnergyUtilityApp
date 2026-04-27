@@ -20,11 +20,25 @@ public partial class EnergyUtilityAppDbContext : IdentityDbContext<ApplicationUs
 
     public virtual DbSet<ParameterTable> ParameterTables { get; set; }
 
+    public virtual DbSet<ApiKeyLookup> UserApiKeys { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // set the default schema
         modelBuilder.HasDefaultSchema("app");
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<ApiKeyLookup>(entity =>
+        {
+            entity.HasKey(e => e.ApiKey).HasName("user_api_keys_pkey");
+
+            entity.ToTable("user_api_keys", "auth");
+
+            entity.Property(e => e.ApiKey).HasColumnName("api_key");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.IsActive).HasColumnName("is_active");
+        });
+
         modelBuilder.Entity<OptionValue>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("option_values_pkey");

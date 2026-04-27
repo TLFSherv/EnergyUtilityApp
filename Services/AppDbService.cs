@@ -33,4 +33,27 @@ public class AppDbService
         })
         .ToListAsync();
     }
+
+    public async Task<GetApiKeyResponse?> GetUserApiKey(string userId)
+    {
+        return await _context.UserApiKeys
+        .Where(x => x.UserId == userId)
+        .Select(x => new GetApiKeyResponse
+        {
+            ApiKey = x.ApiKey,
+            UserId = x.UserId,
+            IsActive = x.IsActive
+        }).SingleOrDefaultAsync();
+    }
+    public async Task SetUserApiKey(CreateApiKeyRequest req)
+    {
+        _context.Add(new ApiKeyLookup
+        {
+            ApiKey = req.ApiKey,
+            UserId = req.UserId,
+            IsActive = req.IsActive
+        });
+        await _context.SaveChangesAsync();
+    }
+
 }
