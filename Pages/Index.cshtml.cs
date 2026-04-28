@@ -26,7 +26,7 @@ public class IndexModel : PageModel
     {
         try
         {
-            if (!_memoryCache.TryGetValue(CacheKeys.ParameterTable, out List<ParameterTableDisplay> cachedValue))
+            if (!_memoryCache.TryGetValue(CacheKeys.ParameterTable, out List<ParameterTableDisplay>? cachedValue))
             {
                 cachedValue = await _dbService.GetParameterTableData();
 
