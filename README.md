@@ -14,6 +14,6 @@ This is the frontend application for the Energy Utility API providing users with
 
 ## Screenshot
 Here's what the homepage looks like presently:
-<img width="2996" height="1478" alt="image" src="https://github.com/user-attachments/assets/315df740-54e3-4e5e-8147-43491ee1e925" />
+<img width="1507" height="721" alt="EnergyUtilityApp" src="https://github.com/user-attachments/assets/0525350c-a9f4-483c-8c82-e1d88efcf7cd" />
 
 
