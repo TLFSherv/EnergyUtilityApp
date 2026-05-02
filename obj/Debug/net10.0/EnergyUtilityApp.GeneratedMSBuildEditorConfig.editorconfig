@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Pages/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29udGFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Pages/Resources.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVzb3VyY2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/Pages/Shared/_HeaderPartial.cshtml]
