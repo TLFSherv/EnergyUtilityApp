@@ -1,0 +1,72 @@
+@page
+@model ResourceModel
+@{
+    ViewData["Title"] = "Resources";
+}
+
+<div class="m-16 sm:m-10 space-y-8">
+    <h1 class="text-3xl md:text-4xl font-medium border-b w-full sm:w-3/4 p-2">
+        Data Resources
+    </h1>
+    <div class="space-y-4 text-lg">
+        <p>
+            The data used by the API comes from many sources. The electricity meter data comes from the Department of
+            Energy
+            Security and Net Zero (DESNZ) Postcode level electricity statistics 2024. The National Energy Efficiency
+            Data-Framework (NEED) was used to calculate household feature multipliers (floor area, property type, house
+            age)
+            per NEED region. The NEED dataset also included electricity consumption values for factors like council tax
+            band
+            and index of deprivation, maybe I'll include these features in a future version of the Energy Utility API.
+            Using
+            the statistics in the NEED dataset the API applies the correct multiplier to the median region electricity
+            consumption to estimate actual household consumption:
+            For example, if the NEED data shows:
+        </p>
+        <ol class="list-outside px-8">
+            <li>
+                <span class="font-semibold">National Median:</span> 2,700 kWh
+            </li>
+            <li>
+                <span class="font-semibold">Median for "Detached Houses":</span> 3,510 kWh
+            </li>
+            <li>
+                <span class="font-semibold">Weight (W_type):</span> 3,510/2,700 = 1.30
+            </li>
+        </ol>
+        <p>
+            The Ofgem Price Cap dataset was used to get the unit rate and standing charge for households. There are
+            variations in electricity costs in the UK based on region (the UK is split into 14 distribution network
+            operator
+            (DNO) regions) so it was necessary to map each postcode in the DESNZ dataset to the correct DNO region. The
+            most
+            accurate way to link over a million postcodes to a DNO region was to use a DNO licence area boundary JSON
+            file
+            (NESO DNO boundary GeoJSON) and a postcode location dataset (OS Open Code-Point) - and using geopandas in
+            python
+            perform a spatial join to match postcode and dno region based on spatial relationships between geometries.
+        </p>
+    </div>
+    <div class="space-y-4">
+        <h2 class="text-3xl">
+            Links
+        </h2>
+        <ul class="list-disc list-inside text-xl">
+            <li>
+                Department of Energy Security and Net Zero (DESNZ)
+            </li>
+            <li>
+                The National Energy Efficiency Data-Framework (NEED)
+            </li>
+            <li>
+                The Ofgem Price Cap
+            </li>
+            <li>
+                NESO DNO boundary GeoJSON
+            </li>
+            <li>
+                OS Open Code-Point
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact us";
+}
+
+<div class="m-12 space-y-8">
+    <h1 class="text-3xl md:text-4xl font-medium border-b w-full sm:w-3/4 p-2">
+        Contact us
+    </h1>
+    <h4 class="text-xl">
+        The EnergyUtilityApi is a passion project, motivated to help address the UKs cost of living crisis, I
+        created the API for anyone to get an accurate calculation of the energy cost and consumption of their
+        household. The intention was for the energy data to be used as a benchmark for people to try to stay below
+        based on accurate historical energy statistics, but I leave it to you the users to utilise it how you see
+        fit. All the code for this project is open source, and can be found on my GitHub. If you have any questions
+        send me a message below:
+    </h4>
+    <div>
+        <form method="post" class="space-y-6 w-1/2">
+            <div class="form-floating">
+                <input class="form-control" asp-for="Input.Email" placeholder="name@example.com" />
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <span asp-validation-for="Input.Email" class="block text-danger" />
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" asp-for="Input.Message" placeholder="Message"></textarea>
+                <label asp-for="Input.Message" class="form-label">Message</label>
+                <span asp-validation-for="Input.Message" class="text-danger" />
+            </div>
+            <button type="submit"
+                    class="rounded-lg w-1/2 bg-[#2496FA] text-white text-2xl py-2 font-light mb-4 cursor-pointer">
+                Send</button>
+            </form>
+        </div>
+    </div>
+
+ 
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

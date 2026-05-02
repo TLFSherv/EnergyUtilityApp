@@ -1,0 +1,42 @@
+@page
+@model HowToUseModel
+@{
+    ViewData["Title"] = "How to use";
+}
+<div class="m-16 sm:m-10 space-y-8">
+    <h1 class="text-3xl md:text-4xl font-medium border-b w-full sm:w-3/4 p-2">
+        How to use the EnergyUtilityApi
+    </h1>
+    <div class="space-y-4">
+        <h2 class="text-2xl">
+            Follow these steps to use the EnergyUtilityApi in your system:
+        </h2>
+        <div class="text-xl bg-[#F0F0F0] rounded-lg p-10">
+            <ol class="list-inside list-decimal space-y-4">
+                <li>
+                    Create an account by selecting Register at the top right of the page, or if you already have an
+                    account
+                    select Login.
+                </li>
+                <li>
+                    After creating an account/logging in, select My Account in the right hand corner of the page.
+                </li>
+                <li>
+                    In the menu on the account management page, select API Key.
+                </li>
+                <li>
+                    Click the generate key button. This will create your private api key for authenticating your api
+                    requests.
+                </li>
+                <li>
+                    With your API key you can know make calls to the EnergyUtilityApi by using the header name X-API-KEY
+                    with your api key as the value.
+                </li>
+            </ol>
+        </div>
+        <p class="text-xl font-semibold">
+            Please ensure that you keep your API key secret, follow best practises such as storing it as an environment
+            variable in your project.
+        </p>
+    </div>
+</div>
