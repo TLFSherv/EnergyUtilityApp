@@ -6,8 +6,8 @@
 
 <div class="mx-12 mt-8 space-y-8">
     <div class="space-y-4">
-        <h1 class="text-4xl font-medium">Energy Utility API</h1>
-        <p class="text-xl">
+        <h1 class="text-4xl font-medium border-b">Energy Utility API</h1>
+        <p class="text-xl p-2 font-light">
             Enterprise level API for calculating UK energy cost and consumption by postcode and household features.
             The Energy Utility API can be relied upon to deliver the most accurate, and up to date energy results, all
             at
@@ -30,7 +30,7 @@
                               disabled>@Model.EnergyUtilityApiUrl</textarea>
                     <input id="apiRequestInput" type="hidden" value="@Model.EnergyUtilityApiUrl" disabled />
                 </div>
-                <div class="bg-[#D9D9D9] h-[400px] flex justify-center overflow-auto">
+                <div class="bg-gray-200 h-[400px] flex justify-center overflow-auto">
                     <pre id="jsonDisplay"></pre>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="overflow-auto h-[400px]">
                 <table id="parameterTable" class="table-fixed w-full">
-                    <thead class="bg-[#D9D9D9]">
+                    <thead class="bg-gray-200">
                         <tr class="tableRow text-left m-4">
                             <th class="p-4 w-[22%]">Parameter</th>
                             <th class="p-4 w-auto">Required</th>
