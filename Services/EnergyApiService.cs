@@ -3,9 +3,12 @@ using System.Net.Http.Json;
 using System.Reflection;
 public class EnergyApiService
 {
-    private HttpClient _httpClient;
-    public EnergyApiService()
+    private readonly HttpClient _httpClient;
+
+    private readonly IConfiguration _config;
+    public EnergyApiService(IConfiguration config)
     {
+        _config = config;
         _httpClient = new HttpClient();
     }
     public async Task<PostcodeEnergyDataResponse?> GetPostcodeEnergyData(string apiUrl, ParameterOptions parameters)
@@ -27,7 +30,8 @@ public class EnergyApiService
                     requestUrl += $"&{name}={value}";
                 }
             }
-            _httpClient.DefaultRequestHeaders.Add("X-API-KEY", "Sy+kVoRJkMts41kNqqB65vAn7RlTeLLkneNa9nzNddk=");
+            string apiKey = _config["ApiKeys:EnergyUtilityApi"];
+            _httpClient.DefaultRequestHeaders.Add("X-API-KEY", apiKey);
             var response = await _httpClient.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();
 
