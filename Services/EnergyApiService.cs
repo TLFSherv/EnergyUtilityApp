@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Reflection;
 public class EnergyApiService
@@ -26,18 +27,17 @@ public class EnergyApiService
                     requestUrl += $"&{name}={value}";
                 }
             }
-
+            _httpClient.DefaultRequestHeaders.Add("X-API-KEY", "Sy+kVoRJkMts41kNqqB65vAn7RlTeLLkneNa9nzNddk=");
             var response = await _httpClient.GetAsync(requestUrl);
-            if (response.IsSuccessStatusCode)
-            {
-                var data = await response.Content.ReadFromJsonAsync<ApiResponse>();
-                return data?.Output[0];
-            }
-            return null;
+            response.EnsureSuccessStatusCode();
+
+            var data = await response.Content.ReadFromJsonAsync<ApiResponse>();
+            return data?.Output[0];
+
         }
-        catch (Exception ex)
+        catch (HttpRequestException ex)
         {
-            // log error
+            Console.WriteLine(ex.Message);
             throw;
         }
     }
