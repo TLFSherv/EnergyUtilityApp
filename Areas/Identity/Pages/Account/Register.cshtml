@@ -4,33 +4,32 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="space-y-8">
-    <div class="text-xl space-y-8 w-1/2 mx-auto mt-16">
-        <h1 class="text-5xl pb-4 font-medium font-[Arial] border-b">@ViewData["Title"]</h1>
-        <h2>
-            Create a new account to access and manage your Energy Utility API key. If you already have an account login
-            here.
-        </h2>
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-12">
+<div class="text-xl space-y-4 w-1/2 mx-auto mt-16">
+    <h1 class="text-5xl pb-4 font-medium font-[Arial] border-b">@ViewData["Title"]</h1>
+    <h2>
+        Create a new account to access and manage your Energy Utility API key. If you already have an account login
+        here.
+    </h2>
+    <div>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="space-y-6">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="grid grid-cols-[1fr_2fr] grid-rows-3 gap-y-10 gap-x-6">
-                <label asp-for="Input.Email">Email</label>
-                <div>
-                    <input asp-for="Input.Email" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
-                           autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <div class="space-y-4">
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"
+                           placeholder="name@example.com" />
+                    <label class="form-label" asp-for="Input.Email">Email</label>
                     <span asp-validation-for="Input.Email" class="text-red-400"></span>
                 </div>
-                <label asp-for="Input.Password">Password</label>
-                <div>
-                    <input asp-for="Input.Password" class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2"
-                           autocomplete="new-password" aria-required="true" placeholder="password" />
+                <div class="form-floating">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                           aria-required="true" placeholder="password" />
+                    <label class="form-label" asp-for="Input.Password">Password</label>
                     <span asp-validation-for="Input.Password" class="text-red-400"></span>
                 </div>
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <div>
-                    <input asp-for="Input.ConfirmPassword"
-                           class="border border-2 border-[#BBBABA] rounded-lg w-full py-1 px-2" autocomplete="new-password"
-                           aria-required="true" placeholder="password" />
+                <div class="form-floating">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" aria-required="true"
+                           placeholder="password" />
+                    <label class="form-label" asp-for="Input.ConfirmPassword">Confirm Password</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-red-400"></span>
                 </div>
             </div>
@@ -41,6 +40,7 @@
         </form>
     </div>
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

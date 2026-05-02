@@ -3,18 +3,17 @@
 @{
     ViewData["Title"] = "API Key";
 }
-<div class="space-y-5">
+<div class="space-y-5 w-3/4">
     <div class="space-y-2">
-        <h1 class="text-2xl">
+        <h3>
             @(@Model.ApiKey == null ? "Generate API Key" : "Manage API Key")
-        </h1>
+        </h3>
         <h2>Select the generate key button to create your API Key.</h2>
     </div>
     <form method="post" class="space-y-4">
-        <div class="space-x-2">
-            <label class="block" asp-for="ApiKey"></label>
-            <input class="w-1/2 border border-2 border-[#BBBABA] rounded-lg py-1 px-2" asp-for="ApiKey"
-                   placeholder="No key" disabled />
+        <div class="space-x-2 form-floating">
+            <input class="form-control" asp-for="ApiKey" placeholder="No key" disabled />
+            <label class="form-label" asp-for="ApiKey"></label>
             <button id="copyButton" onclick="handleCopy()" type="button"
                     class="text-sm font-semibold underline underline-offset-3 p-1 rounded-lg cursor-pointer">Copy</button>
         </div>

@@ -23,14 +23,14 @@ public class EnergyApiService
             {
                 // get the name and value of each property
                 string name = property.Name;
-                object value = property.GetValue(parameters);
+                object? value = property.GetValue(parameters);
 
                 if (value is int val && val != 0)
                 {
                     requestUrl += $"&{name}={value}";
                 }
             }
-            string apiKey = _config["ApiKeys:EnergyUtilityApi"];
+            string? apiKey = _config["ApiKeys:EnergyUtilityApi"];
             _httpClient.DefaultRequestHeaders.Add("X-API-KEY", apiKey);
             var response = await _httpClient.GetAsync(requestUrl);
             response.EnsureSuccessStatusCode();
