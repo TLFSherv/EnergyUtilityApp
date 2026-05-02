@@ -22,11 +22,23 @@ public partial class EnergyUtilityAppDbContext : IdentityDbContext<ApplicationUs
 
     public virtual DbSet<ApiKeyLookup> UserApiKeys { get; set; }
 
+    public virtual DbSet<UserMessage> UserMessages { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // set the default schema
         modelBuilder.HasDefaultSchema("app");
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<UserMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("user_messages_pkey");
+
+            entity.ToTable("user_messages");
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Email).HasColumnName("email");
+            entity.Property(e => e.Message).HasColumnName("message");
+        });
 
         modelBuilder.Entity<ApiKeyLookup>(entity =>
         {

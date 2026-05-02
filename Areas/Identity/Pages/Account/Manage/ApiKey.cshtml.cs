@@ -81,7 +81,7 @@ namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
             IsKeyValid = true;
 
             // store new api key in database
-            await _dbService.SetUserApiKey(new CreateApiKeyRequest
+            await _dbService.InsertUserApiKey(new CreateApiKeyRequest
             {
                 ApiKey = ApiKey,
                 UserId = userId,

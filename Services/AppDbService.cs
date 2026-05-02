@@ -45,13 +45,22 @@ public class AppDbService
             IsActive = x.IsActive
         }).SingleOrDefaultAsync();
     }
-    public async Task SetUserApiKey(CreateApiKeyRequest req)
+    public async Task InsertUserApiKey(CreateApiKeyRequest req)
     {
         _context.Add(new ApiKeyLookup
         {
             ApiKey = req.ApiKey,
             UserId = req.UserId,
             IsActive = req.IsActive
+        });
+        await _context.SaveChangesAsync();
+    }
+    public async Task InsertUserMessage(SendMessage userMessage)
+    {
+        _context.Add(new UserMessage
+        {
+            Email = userMessage.Email,
+            Message = userMessage.Message
         });
         await _context.SaveChangesAsync();
     }
