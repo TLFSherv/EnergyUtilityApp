@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39611aaa806b4cec6fba090afddff79f023de37e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac8cf488df1c7075800b223a3bf91f47e2ee4999")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnergyUtilityApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
