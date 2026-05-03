@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 
 namespace EnergyUtilityApp.Pages;
 
@@ -9,63 +10,67 @@ public class IndexModel : PageModel
 {
     [BindProperty]
     [FromBody]
-    public ParameterOptions APIParameters { get; set; } = new();
-    public required List<ParameterTableDisplay> ParameterTableData { get; set; }
-    public required string EnergyUtilityApiUrl = "http://localhost:5252/api/energy-utility?Postcode=AB10AG";
+    public ParameterOptionsViewModel APIParameters { get; set; } = new();
+    public required List<ParameterTableViewModel> ParameterData { get; set; }
+    public required string EnergyUtilityApiUrl { get; set; }
     private readonly EnergyApiService _apiService;
     private readonly AppDbService _dbService;
     private readonly IMemoryCache _memoryCache;
-    public IndexModel(AppDbService dbService, EnergyApiService apiService, IMemoryCache memoryCache)
+    private readonly ILogger<IndexModel> _logger;
+    public IndexModel(AppDbService dbService,
+    EnergyApiService apiService,
+    IMemoryCache memoryCache,
+    IOptions<AppServiceSettings> options,
+    ILogger<IndexModel> logger)
     {
         _dbService = dbService;
         _apiService = apiService;
         _memoryCache = memoryCache;
+        EnergyUtilityApiUrl = options.Value.EnergyUtilityApiUrl;
+        _logger = logger;
     }
 
     public async Task<IActionResult> OnGetAsync()
     {
         try
         {
-            if (!_memoryCache.TryGetValue(CacheKeys.ParameterTable, out List<ParameterTableDisplay>? cachedValue))
+            if (!_memoryCache.TryGetValue(CacheKeys.ParameterTable, out List<ParameterTableViewModel>? parameterData))
             {
-                cachedValue = await _dbService.GetParameterTableData();
+                parameterData = await _dbService.GetParameterTableData();
+
+                _logger.LogDebug("Storing parameter data in cache");
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(10));
-                _memoryCache.Set(CacheKeys.ParameterTable, cachedValue, cacheEntryOptions);
+                _memoryCache.Set(CacheKeys.ParameterTable, parameterData, cacheEntryOptions);
+
+                _logger.LogInformation("Stored parameter data successfully in cache");
             }
-            ParameterTableData = cachedValue;
+            ParameterData = parameterData;
             return Page();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Console.WriteLine(ex.Message);
+            _logger.LogWarning("Problem storing parameter data in cache");
             return Page();
         }
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        try
+
+        if (!ModelState.IsValid)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            var result = await _apiService.GetPostcodeEnergyData(EnergyUtilityApiUrl, APIParameters);
-            if (result != null)
-            {
-                return new JsonResult(result);
-            }
-
+            _logger.LogWarning("Invalid parameter options");
             return Page();
         }
-        catch (Exception ex)
+
+        var result = await _apiService.GetPostcodeEnergyData(EnergyUtilityApiUrl, APIParameters);
+        if (result != null)
         {
-            Console.WriteLine(ex.Message);
-            // log error
-            return Page();
+            return new JsonResult(result);
         }
+
+        return Page();
     }
 }

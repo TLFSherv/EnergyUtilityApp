@@ -6,25 +6,24 @@
 <div class="space-y-5 w-3/4">
     <div class="space-y-2">
         <h3>
-            @(@Model.ApiKey == null ? "Generate API Key" : "Manage API Key")
+            @(String.IsNullOrEmpty(@Model?.Input?.ApiKey) ? "Generate API Key" : "Manage API Key")
         </h3>
         <h2>Select the generate key button to create your API Key.</h2>
     </div>
     <form method="post" class="space-y-4">
         <div class="space-x-2 form-floating">
-            <input class="form-control" asp-for="ApiKey" placeholder="No key" disabled />
-            <label class="form-label" asp-for="ApiKey"></label>
+            <input class="form-control" asp-for="Input.ApiKey" placeholder="No key" disabled />
+            <label class="form-label" asp-for="Input.ApiKey"></label>
             <button id="copyButton" onclick="handleCopy()" type="button"
                     class="text-sm font-semibold underline underline-offset-3 p-1 rounded-lg cursor-pointer">Copy</button>
         </div>
-        @if (Model.IsKeyValid)
+        @if (!String.IsNullOrEmpty(@Model?.Input?.ApiKey) && @Model.Input.IsActive)
         {
-            
             <button type="submit" class="btn btn-lg btn-primary" disabled>Generate key</button>
         }
         else
         {
-            if (!String.IsNullOrEmpty(Model.ApiKey))
+            if (@Model?.Input != null && !@Model.Input.IsActive)
             {
                 <p class="text-red-400">Key is invalid</p>
             }
@@ -36,7 +35,7 @@
 <script>
     let timeoutId = null;
     function handleCopy() {
-        const copyText = document.getElementById("ApiKey");
+        const copyText = document.getElementById("Input_ApiKey");
         const copyButton = document.getElementById("copyButton");
         // Select the text field
         copyText.select();

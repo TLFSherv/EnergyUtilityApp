@@ -21,6 +21,10 @@ builder.Services.AddScoped<EnergyApiService>();
 builder.Services.AddScoped<AppDbService>();
 builder.Services.AddMemoryCache();
 
+builder.Services.Configure<AppServiceSettings>(
+    builder.Configuration.GetSection("AppServiceSettings")
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

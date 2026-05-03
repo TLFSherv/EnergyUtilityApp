@@ -54,31 +54,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <form method="post">
+                        <div>
                             @Html.AntiForgeryToken()
-                            @foreach (var row in Model.ParameterTableData)
+                            @if (Model.ParameterData != null)
                             {
-                                <tr class="tableRow border-b-2 border-[#D9D9D9]">
-                                    <td class="p-4">@row.Name</td>
-                                    <td class="p-4">@row.Required</td>
-                                    <td class="p-4">
-                                        <ol>
-                                            <li><strong>Type:</strong> @row.Type</li>
-                                            <li><strong>Default:</strong> @row.DefaultValue</li>
-                                            <li><strong>Options:</strong> @row.Options</li>
+                                @foreach (ParameterTableViewModel row in Model.ParameterData)
+                                {
+                                    <tr class="tableRow border-b-2 border-[#D9D9D9]">
+                                        <td class="p-4">@row.Name</td>
+                                        <td class="p-4">@row.Required</td>
+                                        <td class="p-4">
+                                            <ol>
+                                                <li><strong>Type:</strong> @row.Type</li>
+                                                <li><strong>Default:</strong> @row.DefaultValue</li>
+                                                <li><strong>Options:</strong> @row.Options</li>
                                             
-                                        </ol>
-                                    </td>
-                                    <td class="p-4">
-                                        @row.Text
-                                        @if (row.Name != "Postcode")
-                                        {
-                                            <partial name="_SubtablePartial" model="row" />
-                                        }
-                                    </td>
-                                </tr>
+                                            </ol>
+                                        </td>
+                                        <td class="p-4">
+                                            @row.Text
+                                            @if (row.Name != "Postcode")
+                                            {
+                                                <partial name="_SubtablePartial" model="row" />
+                                            }
+                                        </td>
+                                    </tr>
+                                }
                             }
-                        </form>
+                            else
+                            {
+                                <p class="text-danger">
+                                    <span class="font-bold">Error:</span> There was a problem displaying the table of
+                                    API parameter options. Reload the page.
+                                </p>
+                            }
+                        </div>
                     </tbody>
                 </table>
             </div>

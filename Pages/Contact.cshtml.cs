@@ -5,7 +5,7 @@ using EnergyUtilityApp;
 public class ContactModel : PageModel
 {
     [BindProperty]
-    public SendMessage? Input { get; set; }
+    public SendMessageRequest? Input { get; set; }
     private readonly AppDbService _dbService;
 
     public ContactModel(AppDbService dbService)
@@ -20,20 +20,18 @@ public class ContactModel : PageModel
 
     public async Task<ActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
-        {
-            // If validation fails, we MUST return Page() to show the errors
-            return Page();
-        }
+        // If validation fails, we MUST return Page() to show the errors
+        if (!ModelState.IsValid) return Page();
 
         try
         {
-            await _dbService.InsertUserMessage(Input);
+            await _dbService.SaveUserMessage(Input);
+            return RedirectToPage("./MessageSent");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Console.WriteLine(ex.Message);
+            ModelState.AddModelError(string.Empty, "Could not send user message");
+            return Page();
         }
-        return RedirectToPage("./MessageSent");
     }
 }

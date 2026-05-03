@@ -12,10 +12,8 @@ namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
     [Authorize]
     public class ApiKeyModel : PageModel
     {
-        [Display(Name = "API Key")]
-        [MaxLength(100)]
-        public string? ApiKey { get; set; }
-        public bool IsKeyValid { get; set; }
+
+        public UserApiKey? Input { get; set; }
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly AppDbService _dbService;
         private readonly IMemoryCache _memoryCache;
@@ -38,14 +36,14 @@ namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
             }
 
             // get api key from cache
-            if (!_memoryCache.TryGetValue($"user:{userId}:apikey", out ApiKeyCacheRequest? apiKeyCache))
+            if (!_memoryCache.TryGetValue($"user:{userId}:apikey", out UserApiKey? userApiKey))
             {
                 // read api key from database
                 GetApiKeyResponse? apiKeyResponse = await _dbService.GetUserApiKey(userId);
                 // if null user hasn't generated a key yet
                 if (apiKeyResponse == null) return Page();
 
-                apiKeyCache = new ApiKeyCacheRequest
+                userApiKey = new UserApiKey
                 {
                     ApiKey = apiKeyResponse.ApiKey,
                     UserId = apiKeyResponse.UserId,
@@ -55,21 +53,16 @@ namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(20));
                 // store api key in cache
-                _memoryCache.Set($"user:{userId}:apikey", apiKeyCache, cacheEntryOptions);
+                _memoryCache.Set($"user:{userId}:apikey", userApiKey, cacheEntryOptions);
             }
 
-            if (apiKeyCache != null)
-            {
-                ApiKey = apiKeyCache.ApiKey;
-                IsKeyValid = apiKeyCache.IsActive;
-            }
-
+            Input = userApiKey;
             return Page();
         }
         public async Task<IActionResult> OnPostAsync()
         {
             // only allow to create new key if key is invalid
-            if (IsKeyValid) return Page();
+            if (Input != null && Input.IsActive) return Page();
 
             string? userId = _userManager.GetUserId(User);
             if (string.IsNullOrEmpty(userId))
@@ -77,27 +70,26 @@ namespace EnergyUtilityApp.Areas.Identity.Pages.Account.Manage
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
-            ApiKey = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
-            IsKeyValid = true;
-
             // store new api key in database
-            await _dbService.InsertUserApiKey(new CreateApiKeyRequest
+            var apiKey = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
+            await _dbService.SaveUserApiKey(new CreateApiKeyRequest
             {
-                ApiKey = ApiKey,
+                ApiKey = apiKey,
                 UserId = userId,
-                IsActive = IsKeyValid
+                IsActive = true
             });
 
             // store new api key in cache
-            ApiKeyCacheRequest apiKeyCache = new ApiKeyCacheRequest
+            UserApiKey userApiKey = new UserApiKey
             {
-                ApiKey = ApiKey,
+                ApiKey = apiKey,
                 UserId = userId,
-                IsActive = IsKeyValid
+                IsActive = true
             };
             var cacheEntryOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(20));
-            _memoryCache.Set($"user:{userId}:apikey", apiKeyCache, cacheEntryOptions);
+            _memoryCache.Set($"user:{userId}:apikey", userApiKey, cacheEntryOptions);
+            Input = userApiKey;
 
             return Page();
         }
