@@ -10,7 +10,7 @@
 }
 
 <div class="space-y-12">
-    <div class="shadow-md p-4 w-1/2 mx-auto rounded-md mt-6 space-y-4">
+    <div class="shadow-md p-4 md:w-1/2 mx-auto rounded-md mt-6 space-y-4">
         <h1 class="text-4xl">Manage your account</h1>
         <ol class="text-xl list-disc list-inside">
             <li>Change your account settings</li>
@@ -18,11 +18,11 @@
         </ol>
     </div>
 
-    <div class="grid grid-cols-[3fr_4fr] gap-x-4 text-lg">
-        <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col sm:flex-row sm:gap-x-4 gap-y-12 text-lg">
+        <div class="flex-3 flex flex-col justify-center items-center">
             <partial name="_ManageNav" />
         </div>
-        <div class="h-[200px] flex flex-col items-center">
+        <div class="flex-4 h-[200px] flex flex-col items-center">
             @RenderBody()
         </div>
     </div>

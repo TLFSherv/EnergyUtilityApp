@@ -4,7 +4,7 @@
     ViewData["Title"] = "Contact us";
 }
 
-<div class="m-12 space-y-8">
+<div class="m-8 sm:m-12 space-y-8">
     <h1 class="text-3xl md:text-4xl font-medium border-b w-full sm:w-3/4 p-2">
         Contact us
     </h1>
@@ -17,7 +17,7 @@
         send me a message below:
     </h4>
     <div>
-        <form method="post" class="space-y-6 w-1/2">
+        <form method="post" class="space-y-6 md:w-3/4 lg:w-1/2">
             <div class="form-floating">
                 <input class="form-control" asp-for="Input.Email" placeholder="name@example.com" />
                 <label asp-for="Input.Email" class="form-label">Email</label>
