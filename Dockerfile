@@ -2,6 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
+# --- ADD THESE LINES TO INSTALL NODE.JS ---
+RUN apt-get update && apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
 COPY ["EnergyUtilityApp.csproj", "./"]
 RUN dotnet restore
 
