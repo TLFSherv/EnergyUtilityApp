@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-COPY ["EnergyUtilityApi.csproj", "./"]
+COPY ["EnergyUtilityApp.csproj", "./"]
 RUN dotnet restore
 
 COPY . .
@@ -17,4 +17,4 @@ COPY --from=build /app/out .
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-ENTRYPOINT ["dotnet", "EnergyUtilityApi.dll"]
+ENTRYPOINT ["dotnet", "EnergyUtilityApp.dll"]
