@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connString = builder.Configuration.GetConnectionString("DbConnection");
+var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<EnergyUtilityAppDbContext>( // register DbContext
     options => options.UseNpgsql(connString) // specify provider
