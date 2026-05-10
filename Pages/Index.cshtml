@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="mx-8 sm:mx-12 mt-8 space-y-8">
+<div class="mx-4 sm:mx-12 mt-8 space-y-8">
     <div class="space-y-4">
         <h1 class="text-4xl font-medium border-b">Energy Utility API</h1>
         <p class="text-xl p-2 font-light">
@@ -40,11 +40,11 @@
                 <label>
                     Search:
                     <input type="search" id="searchInput"
-                           class="text-black border border-gray-300 bg-gray-50 rounded-lg py-1 px-2 w-[400px]"></input>
+                           class="text-black border border-gray-300 bg-gray-50 rounded-lg py-1 px-2 sm:w-[400px]"></input>
                 </label>
             </div>
             <div class="overflow-auto h-[400px]">
-                <table id="parameterTable" class="table-fixed w-full">
+                <table id="parameterTable" class="table-auto md:table-fixed w-full">
                     <thead class="bg-gray-200">
                         <tr class="tableRow text-left m-4">
                             <th class="p-4 w-[22%]">Parameter</th>
