@@ -1,5 +1,5 @@
 # Energy Utility App
-This is the frontend application for the Energy Utility API providing users with information about the API as well as a sign-up/sign-in page for accessing an API token to utilise the API. I'm in the process of developing the app with the aspiration of shipping before the end of Apirl.
+This is the frontend application for the Energy Utility API providing users with information about the API as well as a sign-up/sign-in page for accessing an API token to utilise the API. A demo version of the application is currently live on Render. Please be patient when first accessing the app as it must spin-up after in-activity.
 
 ## Tech Stack
 ![Static Badge](https://img.shields.io/badge/C%23-purple?logo=C%23)
