@@ -1,6 +1,9 @@
 # Energy Utility App
 This is the frontend application for the Energy Utility API providing users with information about the API as well as a sign-up/sign-in page for accessing an API token to utilise the API. A demo version of the application is currently live on Render. Please be patient when first accessing the app as it must spin-up after in-activity.
 
+## Live Demo Link
+https://energyutilityapp.onrender.com
+
 ## Tech Stack
 ![Static Badge](https://img.shields.io/badge/C%23-purple?logo=C%23)
 ![Static Badge](https://img.shields.io/badge/ASP.NET%20Razor%20Pages-blue?logo=ASP.NET%20Razor)
@@ -14,6 +17,7 @@ This is the frontend application for the Energy Utility API providing users with
 
 ## Screenshot
 Here's what the homepage looks like presently:
-<img width="1507" height="721" alt="EnergyUtilityApp" src="https://github.com/user-attachments/assets/0525350c-a9f4-483c-8c82-e1d88efcf7cd" />
+<img width="2992" height="1442" alt="image" src="https://github.com/user-attachments/assets/d723bd1c-12f6-405f-9fa2-f105144999c5" />
+
 
 
