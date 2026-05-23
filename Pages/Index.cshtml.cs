@@ -17,17 +17,19 @@ public class IndexModel : PageModel
     private readonly AppDbService _dbService;
     private readonly IMemoryCache _memoryCache;
     private readonly ILogger<IndexModel> _logger;
+    private readonly IOptions<AppServiceSettings> _options;
     public IndexModel(AppDbService dbService,
     EnergyApiService apiService,
     IMemoryCache memoryCache,
-    IOptions<AppServiceSettings> options,
-    ILogger<IndexModel> logger)
+    ILogger<IndexModel> logger,
+    IOptions<AppServiceSettings> options)
     {
         _dbService = dbService;
         _apiService = apiService;
         _memoryCache = memoryCache;
-        EnergyUtilityApiUrl = options.Value.EnergyUtilityApiUrl;
         _logger = logger;
+        _options = options;
+        EnergyUtilityApiUrl = _options.Value.EnergyUtilityApiUrl;
     }
 
     public async Task<IActionResult> OnGetAsync()
@@ -65,7 +67,7 @@ public class IndexModel : PageModel
             return Page();
         }
 
-        var result = await _apiService.GetPostcodeEnergyData(EnergyUtilityApiUrl, APIParameters);
+        var result = await _apiService.GetPostcodeEnergy(APIParameters);
         if (result != null)
         {
             return new JsonResult(result);

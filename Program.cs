@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using EnergyUtilityApp;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<EnergyApiService>();
 builder.Services.AddScoped<AppDbService>();
 builder.Services.AddMemoryCache();
+builder.Services.AddHttpClient<PostcodeEnergyClient>();
 
 builder.Services.Configure<AppServiceSettings>(
     builder.Configuration.GetSection("AppServiceSettings")
