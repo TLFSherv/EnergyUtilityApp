@@ -23,7 +23,7 @@
             <li>
                 <form asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })"
                       asp-area="Identity" method="post">
-                    <button type="submit">Logout</button>
+                    <button class="cursor-pointer" type="submit">Logout</button>
                 </form>
             </li>
         </ul>
@@ -31,7 +31,7 @@
 </div>
 
 <div class="w-full bg-[#171717] md:hidden">
-    <div class="topnav flex md:hidden h-14 w-full px-8 border-b border-[#BBBABA]">
+    <div class="topnav flex md:hidden h-16 w-full px-8 border-b border-[#BBBABA]">
         <div class="my-auto">
             <a href="/">
                 <img src="~/images/logo-white.png" alt="logo" class="size-8 w-auto" />

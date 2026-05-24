@@ -13,8 +13,9 @@ builder.Services.AddDbContext<EnergyUtilityAppDbContext>( // register DbContext
 
 // add identity services
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-    options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<EnergyUtilityAppDbContext>();
+{
+    options.SignIn.RequireConfirmedAccount = false;
+}).AddEntityFrameworkStores<EnergyUtilityAppDbContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
