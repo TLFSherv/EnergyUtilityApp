@@ -23,7 +23,7 @@ async function fetchApiResults(inputs) {
     try {
         // clear displayed text
         const jsonDisplay = document.getElementById("jsonDisplay");
-        document.getElementById("jsonDisplay").innerText = "";
+        jsonDisplay.innerText = "";
         // display loader
         const loader = document.getElementsByClassName("loader");
         loader[0].style.display = "block";
@@ -41,7 +41,7 @@ async function fetchApiResults(inputs) {
 
         // remove loader
         loader[0].style.display = "none";
-        document.getElementById("jsonDisplay").innerText = formattedJson;
+        jsonDisplay.innerText = formattedJson;
     }
     catch (e) {
         console.log(e.message);
