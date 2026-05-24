@@ -1,10 +1,10 @@
 <!-- Navigation -->
-<div class="hidden md:flex h-16 w-full px-8 border-b border-[#BBBABA] bg-[#171717] text-white font-light">
+<div class="hidden md:flex h-16 w-full px-8 border-b border-[#BBBABA]">
     <div class="text-lg sm:text-xl">
         <ul class="flex items-center space-x-4 sm:space-x-8 h-full">
             <li>
                 <a href="/">
-                    <img src="~/images/logo-white.png" alt="logo" class="size-6 w-auto" />
+                    <img src="~/images/logo.png" alt="logo" class="size-6 w-auto" />
                 </a>
             </li>
             <li><a href="/HowToUse">Use API</span></a></li>
@@ -14,7 +14,16 @@
     </div>
     <div class="flex-1"></div>
     <div class="my-auto">
-        <vc:account-menu></vc:account-menu>
+        <ul>
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Register">
+                    Register
+                </a>
+            </li>
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -48,8 +57,21 @@
                 Data Resources
             </li>
         </a>
+        <a asp-area="Identity" asp-page="/Account/Register">
+            <li class="w-full py-4 px-8 hover:bg-[#454545] cursor-pointer ">
+                Register
+            </li>
+        </a>
+        <a asp-area="Identity" asp-page="/Account/Login">
+            <li class="w-full py-4 px-8 hover:bg-[#454545] cursor-pointer ">
+                Login
+            </li>
+        </a>
     </ol>
-    <vc:account-menu></vc:account-menu>
 </div>
+
+
+
+
 
 

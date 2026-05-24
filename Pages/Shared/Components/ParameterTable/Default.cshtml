@@ -28,7 +28,9 @@
                         @row.Text
                         @if (row.Name != "Postcode")
                         {
-                            <partial name="_SubtablePartial" model="row" />
+                            <div class="max-h-[200px] overflow-auto">
+                                <partial name="_SubtablePartial" model="row" />
+                            </div>
                         }
                     </td>
                 </tr>

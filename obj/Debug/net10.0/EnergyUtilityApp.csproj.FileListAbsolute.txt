@@ -371,7 +371,8 @@
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ciqwqqv6o3-{0}-x7yuiuq02h-x7yuiuq02h.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ghnc1scvub-{0}-aojvk8zw4z-aojvk8zw4z.gz
 /Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/isc9jbl3eq-{0}-7fxjgslwl2-7fxjgslwl2.gz
-/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-8krxqgdt7o-8krxqgdt7o.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/ciqwqqv6o3-{0}-7bnte4sjt1-7bnte4sjt1.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/dqng87hjn1-{0}-8ax753g078-8ax753g078.gz
+/Users/sherwinburgess/Documents/EnergyUtilityApp/EnergyUtilityApp/obj/Debug/net10.0/compressed/2fmaqzvqmb-{0}-cex4k715bz-cex4k715bz.gz
