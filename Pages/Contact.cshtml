@@ -4,7 +4,7 @@
     ViewData["Title"] = "Contact us";
 }
 
-<div class="m-4 sm:m-8 md:mx-12 space-y-8">
+<div class="mx-4 sm:mx-8 md:mx-12 space-y-8">
     <h1 class="text-3xl md:text-4xl font-medium border-b w-full sm:w-3/4 p-2">
         Contact us
     </h1>
@@ -29,7 +29,7 @@
                 <span asp-validation-for="Input.Message" class="text-danger" />
             </div>
             <button type="submit"
-                    class="rounded-lg w-1/2 bg-[#2496FA] text-white text-2xl py-2 font-light mb-4 cursor-pointer">
+                    class="rounded-lg w-full bg-[#2496FA] text-white text-2xl py-2 font-light mb-4 cursor-pointer">
                 Send</button>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             </form>
