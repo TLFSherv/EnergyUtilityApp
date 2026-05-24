@@ -5,7 +5,7 @@ module.exports = {
         "./Pages/**/*.razor",            // If you ever use Blazor
         "./Views/**/*.cshtml",           // In case you have MVC views
         "./Components/**/*.cshtml",      // If you use ViewComponents
-        "./wwwroot/**/*.html",           // Optional
+        "./wwwroot/**/*.html",        // Optional
     ],
     theme: {
         extend: {},

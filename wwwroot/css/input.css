@@ -39,6 +39,10 @@
         @apply text-green-600 font-bold;
     }
 
+    .text-danger {
+        @apply text-red-600 font-bold;
+    }
+
     .form-floating span[data-valmsg-for] {
         @apply mt-1 block text-xs text-red-600;
     }
