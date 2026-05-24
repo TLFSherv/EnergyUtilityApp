@@ -1,4 +1,4 @@
-function setApiRequest(elem) {
+function makeApiRequest(elem) {
     const checkboxInputs = document.querySelectorAll("tr input");
     const apiRequestText = document.getElementById("apiRequestText");
     const requestUrl = document.getElementById("apiRequestInput").value;
@@ -21,6 +21,13 @@ function setApiRequest(elem) {
 
 async function fetchApiResults(inputs) {
     try {
+        // clear displayed text
+        const jsonDisplay = document.getElementById("jsonDisplay");
+        document.getElementById("jsonDisplay").innerText = "";
+        // display loader
+        const loader = document.getElementsByClassName("loader");
+        loader[0].style.display = "block";
+
         const resp = await fetch("/", {
             method: "POST",
             headers: {
@@ -31,6 +38,9 @@ async function fetchApiResults(inputs) {
         });
         const data = await resp.json();
         const formattedJson = JSON.stringify(data, null, 4);
+
+        // remove loader
+        loader[0].style.display = "none";
         document.getElementById("jsonDisplay").innerText = formattedJson;
     }
     catch (e) {
